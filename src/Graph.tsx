@@ -48,14 +48,16 @@ class Graph extends Component<IProps, {}> {
       // Load the `table` in the `<perspective-viewer>` DOM reference.
       elem.setAttribute('view', 'y_line');
       elem.setAttribute('column-pivots', '["stock"]');
-      elem.setAttribute('row-pivots', '["timestamp ]');
-      elem.setAttribute('columns', '["top_ask_price]');
-      elem.setAttribute('aggregates','{"stock" : "distinct count","top_ask_price" : "avg", "top_bid_price" : "avg","timestamp" : "distinct count"}');
-      // Add more Perspective configurations here.
+      elem.setAttribute('row-pivots', '["timestamp"]');
+      elem.setAttribute('columns', '["top_ask_price"]');
+      elem.setAttribute('aggregates', '{"stock" : "distinct count", "top_ask_price" : "avg", "top_bid_price" : "avg",  "timestamp" : "distinct count"}');
+  
       elem.load(this.table);
       }
   }
-
+//playing around: tried running x_line, rather than y_line. Did not prevent duplicate figures and it produced more of a table than a graph.
+//
+  
   componentDidUpdate() {
     // Everytime the data props is updated, insert the data into Perspective table
     if (this.table) {
